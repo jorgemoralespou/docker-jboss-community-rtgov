@@ -17,11 +17,13 @@ if [ ! -f files/overlord-rtgov-ui-fsw60.war ]
 then
    wget https://repository.jboss.org/nexus/service/local/repositories/thirdparty-releases/content/org/overlord/rtgov/ui/overlord-rtgov-ui-fsw60/2.0.0.Beta3/overlord-rtgov-ui-fsw60-2.0.0.Beta3.war -P files -O overlord-rtgov-ui-fsw60.war
 fi
+[ ! -f files/overlord-rtgov-ui-fsw60.war ] && echo "No rtgov-ui (overlord-rtgov-ui-fsw60.war) available in files dir" && exit 255
 
 if [ ! -f files/overlord-rtgov-fsw60.war ]
 then
    wget https://repository.jboss.org/nexus/service/local/repositories/thirdparty-releases/content/org/overlord/rtgov/overlord-rtgov-fsw60/2.0.0.Beta3/overlord-rtgov-fsw60-2.0.0.Beta3.war -P files -O overlord-rtgov-fsw60.war
 fi
+[ ! -f files/overlord-rtgov-fsw60.war ] && echo "No rtgov (overlord-rtgov-fsw60.war) available in files dir" && exit 255
 
 docker build --rm -t jmorales/jboss.org-rtgov:2.0.0  .
 
